@@ -1,0 +1,561 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+rule NetworkAdminUser {
+    description: "Grant business network administrators full access to user resources"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
+    operation: ALL
+    resource: "**"
+    action: ALLOW
+}
+
+rule NetworkAdminSystem {
+    description: "Grant business network administrators full access to system resources"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
+    operation: ALL
+    resource: "org.hyperledger.composer.system.**"
+    action: ALLOW
+}
+
+rule BuyerACLCreate {
+    description: "Enable Buyers to execute all actions on an Order"
+    participant(m): "org.acme.supplychain.Buyer"
+    operation: READ, CREATE, UPDATE
+    resource(v): "org.acme.supplychain.**"
+    transaction(tx): "org.acme.supplychain.CreateOrder"
+    condition: (v.buyer.buyerID == m.getIdentifier())
+    action: ALLOW
+}
+
+
+rule BuyerACLBuy {
+    /*
+    *YOUR CODE HERE
+    */
+    description: "Description of the Conditional ACL rule"
+    participant(p): "org.acme.SampleParticipant"
+    operation: ALL
+    resource(r): "org.acme.SampleAsset"
+    condition: (p === r)
+    action: ALLOW
+    
+    
+}
+
+
+rule BuyerACLCancel {
+    /*
+    * YOUR CODE HERE
+    *
+    */
+    description: "Description of the Conditional ACL rule"
+    participant(p): "org.acme.SampleParticipant"
+    operation: ALL
+    resource(r): "org.acme.SampleAsset"
+    condition: (p === r)
+    action: ALLOW
+
+
+}
+
+/**
+*
+**/
+rule BuyerACLDispute {
+    /*
+    * YOUR CODE HERE
+    *
+    */
+    description: "Description of the Conditional ACL rule"
+    participant(p): "org.acme.SampleParticipant"
+    operation: ALL
+    resource(r): "org.acme.SampleAsset"
+    condition: (p === r)
+    action: ALLOW
+
+    
+
+}
+
+/**
+*
+**/
+rule BuyerACLResolve {
+    /*
+    * YOUR CODE HERE
+    *
+    */
+    description: "Description of the Conditional ACL rule"
+    participant(p): "org.acme.SampleParticipant"
+    operation: ALL
+    resource(r): "org.acme.SampleAsset"
+    condition: (p === r)
+    action: ALLOW
+
+    
+}
+
+/**
+*
+**/
+rule BuyerACLAuthorizePayment {
+    /*
+    * YOUR CODE HERE
+    *
+    */
+    description: "Description of the Conditional ACL rule"
+    participant(p): "org.acme.SampleParticipant"
+    operation: ALL
+    resource(r): "org.acme.SampleAsset"
+    condition: (p === r)
+    action: ALLOW
+
+    
+}
+
+/**
+*
+**/
+rule BuyerACL {
+    /*
+    * YOUR CODE HERE
+    *
+    */
+    description: "Description of the Conditional ACL rule"
+    participant(p): "org.acme.SampleParticipant"
+    operation: ALL
+    resource(r): "org.acme.SampleAsset"
+    condition: (p === r)
+    action: ALLOW
+
+    
+}
+
+/**
+*
+*/
+rule netAccessBuyer {
+  /*
+    * YOUR CODE HERE
+    *
+    */
+    description: "Description of the Conditional ACL rule"
+    participant(p): "org.acme.SampleParticipant"
+    operation: ALL
+    resource(r): "org.acme.SampleAsset"
+    condition: (p === r)
+    action: ALLOW
+
+    
+}
+
+
+/**
+*
+**/
+rule SellerOrderFromSupplier {
+    /*
+    * YOUR CODE HERE
+    *
+    */
+    description: "Description of the Conditional ACL rule"
+    participant(p): "org.acme.SampleParticipant"
+    operation: ALL
+    resource(r): "org.acme.SampleAsset"
+    condition: (p === r)
+    action: ALLOW
+
+    
+
+}
+
+/**
+*
+**/
+rule SellerRequestPayment {
+    /*
+    * YOUR CODE HERE
+    *
+    */
+    description: "Description of the Conditional ACL rule"
+    participant(p): "org.acme.SampleParticipant"
+    operation: ALL
+    resource(r): "org.acme.SampleAsset"
+    condition: (p === r)
+    action: ALLOW
+
+    
+
+}
+
+/**
+*
+**/
+rule SellerResolve {
+    /*
+    * YOUR CODE HERE
+    *
+    */
+    description: "Description of the Conditional ACL rule"
+    participant(p): "org.acme.SampleParticipant"
+    operation: ALL
+    resource(r): "org.acme.SampleAsset"
+    condition: (p === r)
+    action: ALLOW
+
+    
+
+}
+
+/**
+*
+**/
+rule SellerRefund {
+    /*
+    * YOUR CODE HERE
+    *
+    */
+    description: "Description of the Conditional ACL rule"
+    participant(p): "org.acme.SampleParticipant"
+    operation: ALL
+    resource(r): "org.acme.SampleAsset"
+    condition: (p === r)
+    action: ALLOW
+
+    
+
+}
+
+/**
+*
+**/
+rule SellerACL {
+    /*
+    * YOUR CODE HERE
+    *
+    */
+    description: "Description of the Conditional ACL rule"
+    participant(p): "org.acme.SampleParticipant"
+    operation: ALL
+    resource(r): "org.acme.SampleAsset"
+    condition: (p === r)
+    action: ALLOW
+
+    
+
+}
+
+/**
+*
+*/
+rule netAccessSeller {
+    /*
+    * YOUR CODE HERE
+    *
+    */
+    description: "Description of the Conditional ACL rule"
+    participant(p): "org.acme.SampleParticipant"
+    operation: ALL
+    resource(r): "org.acme.SampleAsset"
+    condition: (p === r)
+    action: ALLOW
+
+    
+
+}
+
+/**
+*
+**/
+rule ProviderRequestShipping {
+    /*
+    * YOUR CODE HERE
+    *
+    */
+    description: "Description of the Conditional ACL rule"
+    participant(p): "org.acme.SampleParticipant"
+    operation: ALL
+    resource(r): "org.acme.SampleAsset"
+    condition: (p === r)
+    action: ALLOW
+
+    
+
+}
+
+/**
+*
+**/
+rule ProviderBackorder {
+    /*
+    * YOUR CODE HERE
+    *
+    */
+    description: "Description of the Conditional ACL rule"
+    participant(p): "org.acme.SampleParticipant"
+    operation: ALL
+    resource(r): "org.acme.SampleAsset"
+    condition: (p === r)
+    action: ALLOW
+
+    
+
+}
+
+/**
+*
+**/
+rule ProviderPayRequest {
+    /*
+    * YOUR CODE HERE
+    *
+    */
+    description: "Description of the Conditional ACL rule"
+    participant(p): "org.acme.SampleParticipant"
+    operation: ALL
+    resource(r): "org.acme.SampleAsset"
+    condition: (p === r)
+    action: ALLOW
+
+    
+
+}
+
+/**
+*
+**/
+rule ProviderResolve {
+    /*
+    * YOUR CODE HERE
+    *
+    */
+    description: "Description of the Conditional ACL rule"
+    participant(p): "org.acme.SampleParticipant"
+    operation: ALL
+    resource(r): "org.acme.SampleAsset"
+    condition: (p === r)
+    action: ALLOW
+
+    
+
+}
+
+/**
+*
+**/
+rule ProviderRefund {
+    /*
+    * YOUR CODE HERE
+    *
+    */
+    description: "Description of the Conditional ACL rule"
+    participant(p): "org.acme.SampleParticipant"
+    operation: ALL
+    resource(r): "org.acme.SampleAsset"
+    condition: (p === r)
+    action: ALLOW
+
+    
+
+}
+
+/**
+*
+**/
+rule ProviderACL {
+    /*
+    * YOUR CODE HERE
+    *
+    */
+    description: "Description of the Conditional ACL rule"
+    participant(p): "org.acme.SampleParticipant"
+    operation: ALL
+    resource(r): "org.acme.SampleAsset"
+    condition: (p === r)
+    action: ALLOW
+
+    
+
+}
+
+/**
+*
+*/
+rule netAccessProvider {
+  /*
+    * YOUR CODE HERE
+    *
+    */
+    description: "Description of the Conditional ACL rule"
+    participant(p): "org.acme.SampleParticipant"
+    operation: ALL
+    resource(r): "org.acme.SampleAsset"
+    condition: (p === r)
+    action: ALLOW
+
+    
+
+}
+
+/**
+*
+**/
+rule ShipperRefund {
+    /*
+    * YOUR CODE HERE
+    *
+    */
+    description: "Description of the Conditional ACL rule"
+    participant(p): "org.acme.SampleParticipant"
+    operation: ALL
+    resource(r): "org.acme.SampleAsset"
+    condition: (p === r)
+    action: ALLOW
+
+    
+
+}
+
+/**
+*
+**/
+rule ShipperResolve {
+    /*
+    * YOUR CODE HERE
+    *
+    */
+    description: "Description of the Conditional ACL rule"
+    participant(p): "org.acme.SampleParticipant"
+    operation: ALL
+    resource(r): "org.acme.SampleAsset"
+    condition: (p === r)
+    action: ALLOW
+
+    
+
+}
+
+/**
+*
+**/
+rule ShipperDelivering {
+    /*
+    * YOUR CODE HERE
+    *
+    */
+    description: "Description of the Conditional ACL rule"
+    participant(p): "org.acme.SampleParticipant"
+    operation: ALL
+    resource(r): "org.acme.SampleAsset"
+    condition: (p === r)
+    action: ALLOW
+
+    
+
+}
+
+/**
+*
+**/
+rule ShipperDelivered {
+    /*
+    * YOUR CODE HERE
+    *
+    */
+    description: "Description of the Conditional ACL rule"
+    participant(p): "org.acme.SampleParticipant"
+    operation: ALL
+    resource(r): "org.acme.SampleAsset"
+    condition: (p === r)
+    action: ALLOW
+
+    
+
+}
+
+/**
+*
+**/
+rule ShipperACL {
+    /*
+    * YOUR CODE HERE
+    *
+    */
+    description: "Description of the Conditional ACL rule"
+    participant(p): "org.acme.SampleParticipant"
+    operation: ALL
+    resource(r): "org.acme.SampleAsset"
+    condition: (p === r)
+    action: ALLOW
+
+    
+
+}
+
+/**
+*
+*/
+rule netAccessShipper {
+  /*
+    * YOUR CODE HERE
+    *
+    */
+    description: "Description of the Conditional ACL rule"
+    participant(p): "org.acme.SampleParticipant"
+    operation: ALL
+    resource(r): "org.acme.SampleAsset"
+    condition: (p === r)
+    action: ALLOW
+
+    
+
+}
+
+/**
+*
+**/
+rule FinanceCoACL2 {
+    /*
+    * YOUR CODE HERE
+    *
+    */
+    description: "Description of the Conditional ACL rule"
+    participant(p): "org.acme.SampleParticipant"
+    operation: ALL
+    resource(r): "org.acme.SampleAsset"
+    condition: (p === r)
+    action: ALLOW
+}
+/**
+*
+rule FinanceCoACL {
+    /*
+    * YOUR CODE HERE
+    *
+    */
+
+    
+
+}
+
+/**
+*
+*/
+rule netAccessFinanceCo {
+  description: "Allow Finance Company access to the network"
+  participant: "org.acme.supplychain.FinanceCo"
+  operation: ALL
+  resource: "org.hyperledger.composer.system.**"
+  action: ALLOW
+}
